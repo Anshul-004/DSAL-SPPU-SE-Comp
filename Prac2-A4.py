@@ -28,15 +28,14 @@ def hashtable(ht):
         else:
             print(f"\n\t{ele}")
 
-
+print("Prepared By :- Anshul Singh")
 print("DSAL Practical No. 02 (A-4)")
 phone_database = tele_database()
 m = int(input("Enter Hash Table Size :- "))
 hash_table = [-1] * m
 
 while (1):
-    opt = int(input("If collision occurs which collision resolution technique do you want to use?\n\t1. Linear "
-                    "Probing\n\t2. Double Hashing\n\t3. Exit :- "))
+    opt = int(input("If collision occurs which collision resolution technique do you want to use?\n\t1. Linear Probing\n\t2. Double Hashing\n\t3. Exit :- "))
     for k in phone_database:
         h_1 = hash_function_1(k, m)
         h_2 = hash_function_2(k)
@@ -59,5 +58,5 @@ while (1):
                 hashtable(hash_table)
 
             elif opt == 3:
-                print("\n*SUCCESSFULLY TERMINATED*")
+                print("\n*** TERMINATED SUCCESSFULLY ***")
                 exit(0)
