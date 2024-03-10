@@ -31,6 +31,7 @@ public:
     void minNode(Node *&root);
     void searchNode(Node *&root, int key);
     int longestPath(Node *&root);
+    Node *swapPtr(Node *&root);
 };
 
 Node *BST ::insertNode(Node *&root, int d)
@@ -173,7 +174,22 @@ int BST ::longestPath(Node *&root)
 
     return max(leftPath, rightPath) + 1;
 }
+Node *BST::swapPtr(Node *&root)
+{
+    if (root == NULL)
+    {
+        return NULL;
+    }
 
+    Node *temp = root->left;
+    root->left = root->right;
+    root->right = temp;
+
+    swapPtr(root->left);
+    swapPtr(root->right);
+
+    return root;
+}
 int main()
 {
     BST b;
@@ -194,14 +210,15 @@ int main()
             b.getData(root);
             break;
         case 2:
-            cout<<"Longest path is : ";
-            cout<<b.longestPath(root);
+            cout << "Longest path is : ";
+            cout << b.longestPath(root);
             break;
         case 3:
             b.minNode(root);
             break;
         case 4:
-            /* code */
+            b.swapPtr(root);
+            cout<<"Swapped Left <-> Right "<<endl;
             break;
         case 5:
             cout << "Enter Value to Search " << endl;
