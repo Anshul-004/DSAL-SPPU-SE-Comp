@@ -86,7 +86,7 @@ int main()
     
     TreeNode *root = constructExpressionTree(prefixExpression);
 
-    postOrderTraversalAndDelete(root);
+    postOrderTraversalAndDelete(root); 
 
     return 0;
 }
