@@ -28,6 +28,8 @@ public:
     void getData(Node *&root);
     Node *insertNode(Node *&root, int d);
     void display(Node* &root);
+    void minNode(Node* &root);
+    void searchNode(Node* &root, int key);
 };
 
 Node *BST ::insertNode(Node *&root, int d)
@@ -93,14 +95,80 @@ void BST ::display(Node* &root)
 
     }
 }
+
+void BST::minNode(Node* &root)
+{
+    int min = 100,mint;
+    queue<Node*> q;
+    q.push(root);
+
+    while(!q.empty())
+    {
+        Node* temp = q.front();
+        q.pop(); 
+
+        mint = temp->data;
+        if(temp->left)
+        {
+            q.push(temp->left);
+        }
+        if(temp->right)
+        {
+            q.push(temp->right);
+        }
+
+        if(min > mint)
+        {
+            min = mint;
+        }
+    }
+    cout<<"Minimum Node Value is : "<<min;
+}
+
+void BST::searchNode(Node* &root, int key)
+{
+    int kt;
+    bool flag = false;
+    queue<Node*> q;
+    q.push(root);
+
+    while(!q.empty())
+    {
+        Node* temp = q.front();
+        q.pop(); 
+
+        kt = temp->data;
+        if(temp->left)
+        {
+            q.push(temp->left);
+        }
+        if(temp->right)
+        {
+            q.push(temp->right);
+        }
+
+        if(kt == key)
+        {
+            flag = true;
+            break; //exit loop as soon as condition is true
+        }
+    }
+
+    if(flag)
+        cout<<"Element Found in BST"<<endl;
+
+    else
+        cout<<"Element Not Found in BST"<<endl;
+    
+}
+
 int main()
 {
     BST b;
     Node *root = NULL;
-    int ch;
+    int ch,key;
     cout << "*** DSAL PRACTICAL - 04 (B-6) ***" << endl;
-    cout << "*** Prepared By - Anshul Singh ***\n"
-         << endl;
+    cout << "*** Prepared By - Anshul Singh ***\n"<< endl;
 
     while (1)
     {
@@ -116,13 +184,15 @@ int main()
             /* code */
             break;
         case 3:
-            /* code */
+            b.minNode(root);
             break;
         case 4:
             /* code */
             break;
         case 5:
-            /* code */
+            cout<<"Enter Value to Search "<<endl;
+            cin>>key;
+            b.searchNode(root,key);
             break;
         case 6:
             b.display(root);
