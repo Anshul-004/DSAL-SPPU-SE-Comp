@@ -25,6 +25,7 @@ struct Node
 class BST
 {
 public:
+    bool search = false;
     void getData(Node *&root);
     Node *insertNode(Node *&root, int d);
     void display(Node *&root);
@@ -99,72 +100,42 @@ void BST ::display(Node *&root)
 
 void BST::minNode(Node *&root)
 {
-    int min = 100, mint;
-    queue<Node *> q;
-    q.push(root);
-
-    while (!q.empty())
+    while (root->left != NULL)
     {
-        Node *temp = q.front();
-        q.pop();
-
-        mint = temp->data;
-        if (temp->left)
-        {
-            q.push(temp->left);
-        }
-        if (temp->right)
-        {
-            q.push(temp->right);
-        }
-
-        if (min > mint)
-        {
-            min = mint;
-        }
+        root = root->left;
     }
-    cout << "Minimum Node Value is : " << min;
+
+    cout<<"Minimum Element of BST is "<<root->data; 
+    
 }
 
 void BST::searchNode(Node *&root, int key)
 {
-    int kt;
-    bool flag = false;
-    queue<Node *> q;
-    q.push(root);
-
-    while (!q.empty())
+    search = false;
+    if (root == NULL)
     {
-        Node *temp = q.front();
-        q.pop();
-
-        kt = temp->data;
-        if (temp->left)
-        {
-            q.push(temp->left);
-        }
-        if (temp->right)
-        {
-            q.push(temp->right);
-        }
-
-        if (kt == key)
-        {
-            flag = true;
-            break; // exit loop as soon as condition is true
-        }
+        return;
+    }
+    if (root->data == key)
+    {
+        search = true;
+        cout << "Key Found in BST" << endl;
+        return ;
     }
 
-    if (flag)
-        cout << "Element Found in BST" << endl;
-
+    if (root->data < key)
+    {
+        searchNode(root->right, key);
+    }
     else
-        cout << "Element Not Found in BST" << endl;
+    {
+        searchNode(root->left, key);
+    }
 }
 
 int BST ::longestPath(Node *&root)
 {
-    if (root == nullptr)
+    if (root == NULL)
     {
         return 0;
     }
@@ -211,19 +182,21 @@ int main()
             break;
         case 2:
             cout << "Longest path is : ";
-            cout << b.longestPath(root);
+            b.longestPath(root);
             break;
         case 3:
             b.minNode(root);
             break;
         case 4:
             b.swapPtr(root);
-            cout<<"Swapped Left <-> Right "<<endl;
+            cout << "Swapped Left <-> Right " << endl;
             break;
         case 5:
             cout << "Enter Value to Search " << endl;
             cin >> key;
             b.searchNode(root, key);
+            if (!b.search)
+                cout << "Key Not Found in BST" << endl;
             break;
         case 6:
             b.display(root);
