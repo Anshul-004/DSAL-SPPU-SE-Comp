@@ -1,62 +1,66 @@
-def tele_database():
-    phone_data = []
-    n = int(input("Enter Number of Clients :- "))
-    print("Enter Phone Numbers --\n")
-    for _ in range(n):
-        x = int(input("--> "))
-        phone_data.append(x)
+def main(): 
+    set1 = set() 
+    set2 = set() 
+    print("PREPARED BY – Anshul Singh\n") 
+    print("*** DSAL PRACTICAL NO - 02 (A-04) ***") 
+    while(True): 
+        print("\n\n==== SET OPERATIONS ====\n") 
+        print("\nEnter Your Choice :") 
+        choice = int(input("1:Insert \n2:Size \n3:Remove \n4:Contains \n5:Union \n6:Intersection \n7.Subset \n8.Difference \n9.Exit\n")) 
+ 
+        if (choice == 1): 
+            n1 = int(input("Enter the number of elements in set 1: \n")) 
+            for i in range(n1): 
+                data_name = input("Enter the elements in set 1: \n") 
+  
+                set1.add(data_name) 
+            n2 = int(input("\nEnter the number of elements in set 2: \n")) 
+            for i in range(n2): 
+                data_name = input("Enter the elements in set 2: \n") 
+ 
+                set2.add(data_name) 
+ 
+            print("Set 1 :",set1,'\nSet 2 :',set2) 
+ 
+        elif (choice == 2): 
+            print("Size of set1: ", len(set1)) 
+            print("Size of set2: ", len(set2)) 
+             
+        elif (choice == 3): 
+            print('Remove element from set 1 and set 2 (1 for set 1 & 2 for set2)\n') 
+            inp = int(input()) 
+            if inp==1: 
+                set1.pop() 
+                print(set1) 
+            if inp==2: 
+                set2.pop() 
+                print(set2) 
+                 
+                 
+        elif (choice == 4): 
+            ip = input("Enter element you want to check: ") 
+            if ip in set1: 
+                print("set 1 contains the element ",ip) 
+            if ip in set2: 
+                print("set 2 contains the element ",ip) 
+                 
+        elif (choice == 5): 
+            print("Union :", set1.union(set2)) 
+             
+        elif (choice == 6): 
+            print("Intersection: ", set1.intersection(set2)) 
+             
+        elif (choice == 7): 
+            if(set1.issubset(set2)): 
 
-    return phone_data
-
-
-def hash_function_1(key_ele, m_size):
-    h1 = key_ele % m_size
-    return h1
-
-
-def hash_function_2(key_ele):
-    h2 = 7 - (key_ele % 7)
-    return h2
-
-
-def hashtable(ht):
-    print(f"\nHash Value \tKey")
-    for ele in range(len(ht)):
-        if ht[ele] != -1:
-            print(f"\n\t{ele} \t---> \t{ht[ele]}")
-
-        else:
-            print(f"\n\t{ele}")
-
-print("Prepared By :- Anshul Singh")
-print("DSAL Practical No. 02 (A-4)")
-phone_database = tele_database()
-m = int(input("Enter Hash Table Size :- "))
-hash_table = [-1] * m
-
-while (1):
-    opt = int(input("If collision occurs which collision resolution technique do you want to use?\n\t1. Linear Probing\n\t2. Double Hashing\n\t3. Exit :- "))
-    for k in phone_database:
-        h_1 = hash_function_1(k, m)
-        h_2 = hash_function_2(k)
-
-        if hash_table[h_1] == -1:
-            hash_table[h_1] = k
-        else:
-            if opt == 1:
-                while hash_table[h_1] != -1:
-                    h_1 += 1
-                hash_table[h_1] = k
-                hashtable(hash_table)
-
-            elif opt == 2:
-                i = 0
-                while hash_table[h_1] != -1:
-                    i += 1
-                    h_1 = (h_1 + (i * h_2)) % m
-                hash_table[h_1] = k
-                hashtable(hash_table)
-
-            elif opt == 3:
-                print("\n*** TERMINATED SUCCESSFULLY ***")
-                exit(0)
+                print("Set 1 is Subset of set 2") 
+            else: 
+                print("Set 1 is Not a Subset of Set 2") 
+             
+        elif (choice == 8): 
+            differ = set2.difference(set1) 
+            print(differ) 
+             
+        else: 
+            exit() 
+main() 
