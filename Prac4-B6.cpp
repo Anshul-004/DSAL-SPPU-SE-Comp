@@ -201,7 +201,7 @@ int main()
 
     while (1)
     {
-        cout << "\nMENU : \n1.Insert Node\n2.Number of nodes in longest pat\n3.Minimum Data\n4.Swap Left to Right and Vice Versa\n5.Search Value\n6.Display\n7.Exit" << endl;
+        cout << "\nMENU : \n1.Insert Node\n2.Number of nodes in longest path\n3.Minimum Data\n4.Swap Left to Right and Vice Versa\n5.Search Value\n6.Display\n7.Exit" << endl;
         cout << "\nEnter Your Choice : ";
         cin >> ch;
         switch (ch)
