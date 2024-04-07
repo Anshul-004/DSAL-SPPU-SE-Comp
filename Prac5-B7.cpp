@@ -1,4 +1,4 @@
-/* Construct an expression tree from the given prefix expression eg. +--a*bc/def and traverse it using post-order traversal (non recursive) and then delete the entire tree.*/
+/* Construct an expression tree from the given prefix expression eg. +--a*bc/def and traverse it using post-order traversal (non recursive) and then delete the entire tree. */
 #include <iostream>
 #include <stack>
 
@@ -32,9 +32,7 @@ TreeNode *constructExpressionTree(const string &prefix)
         }
         else
         {
-
             TreeNode *newNode = new TreeNode(c);
-
             newNode->left = stk.top();
             stk.pop();
             newNode->right = stk.top();
@@ -75,6 +73,7 @@ void postOrderTraversalAndDelete(TreeNode *root)
                 lastVisited = topNode;
                 stk.pop();
                 delete topNode;
+                cout<<"Tree Deleted";
             }
         }
     }
@@ -82,7 +81,11 @@ void postOrderTraversalAndDelete(TreeNode *root)
 
 int main()
 {
-    string prefixExpression = "+--a*bc/def";
+    cout<<"Prepared By - Anshul Singh"<<endl;
+    cout<<"DSAL Practical 05 (B-7)"<<endl;
+    string prefixExpression ;
+    cout<<"Enter the Prefix Expression"<<endl;
+    cin>>prefixExpression;
     
     TreeNode *root = constructExpressionTree(prefixExpression);
 
