@@ -69,6 +69,7 @@ int main()
     cout << "\nYour cities are: " << endl;
     for (int i = 0; i < n; i++)
         cout << "city #" << i << ": " << cities[i] << endl;
+    
     for (int i = 0; i < n; i++)
     {
         for (int j = i + 1; j < n; j++)
