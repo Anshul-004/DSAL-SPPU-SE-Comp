@@ -328,12 +328,14 @@ dict *dict::update(dict *tree, string s3)
 
 int main()
 {
+    cout<<"DSAL Practical No. 09 (D-19)"<<endl;
+	cout<<"Prepared By : Anshul Singh"<<endl;
     int ch;
     dict d;
     do
     {
-        cout << "\n==========================================\n"
-                "\n********DICTIONARY***********:\n"
+        cout << "\n*******************************************\n"
+                "\n\tDICTIONARY\n"
                 "\nEnter your choice:\n"
                 "1.Add new keyword.\n"
                 "2.Display the contents of the Dictionary.\n"
@@ -341,7 +343,7 @@ int main()
                 "4.Find a keyword.\n"
                 "5.Update the meaning of a keyword.\n"
                 "6.Exit.\n"
-                "===============================================\n";
+                "**********************************************\n";
         cin >> ch;
         switch (ch)
         {

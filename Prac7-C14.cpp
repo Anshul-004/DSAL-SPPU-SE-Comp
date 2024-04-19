@@ -53,7 +53,7 @@ void bfs(int s, int n, string arr[])
 
 int main()
 {
-	cout<<"DSAL Practical No. 06"<<endl;
+	cout<<"DSAL Practical No. 07 (C-14)"<<endl;
 	cout<<"Prepared By : Anshul Singh"<<endl;
     
     cout << "\nEnter no. of cities: ";

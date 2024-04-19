@@ -93,6 +93,8 @@ void Build_MinHeap(int a[], int n)
 
 int main()
 {
+    cout<<"DSAL Practical No. 10 (E-22)"<<endl;
+	cout<<"Prepared By : Anshul Singh"<<endl;
     int n, i;
     cout << "\nEnter the number of Students : ";
     cin >> n;

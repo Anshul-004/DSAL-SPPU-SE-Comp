@@ -13,7 +13,7 @@ int stk[10], top, visit1[10], visited1[10];
 
 int main()
 {
-	cout<<"DSAL Practical No. 06"<<endl;
+	cout<<"DSAL Practical No. 06 (C-13)"<<endl;
 	cout<<"Prepared By : Anshul Singh"<<endl;
 	int ch;
     int m;
