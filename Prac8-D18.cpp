@@ -1,7 +1,6 @@
-// Given sequence k = k1 <k2 < … <kn of n sorted keys, with a search probability pi for each 
-// key ki . Build the Binary search tree that has the least search cost given the access 
-// probability for each key?
-
+/*Given sequence k = k1 <k2 < … <kn of n sorted keys, with a search probability pi for each 
+key ki . Build the Binary search tree that has the least search cost given the access 
+probability for each key? */
 #include <iostream>
 #include <limits.h>
 using namespace std;
@@ -80,18 +79,20 @@ void inorder(Node *root)
 
 int main()
 {
+    cout<<"DSAL Practical No. 08 (D-18)"<<endl;
+	cout<<"Prepared By : Anshul Singh"<<endl;
     int k;
-    cout << "\n ENter number of keys: ";
+    cout << "\nEnter number of keys: ";
     cin >> k;
 
-    cout << "\n Enter keys: ";
+    cout << "\nEnter keys: ";
     int keys[k];
     for (int i = 0; i < k; i++)
     {
         cin >> keys[i];
     }
 
-    cout << "\n Enter the frequencies of keys: ";
+    cout << "\nEnter the frequencies of keys: ";
     int freq[k];
     for (int i = 0; i < k; i++)
     {
@@ -99,7 +100,9 @@ int main()
     }
 
     int n = sizeof(keys) / sizeof(keys[0]);
+
     Node *root = buildOptimalBST(keys, freq, 0, n - 1);
+
     cout << "\n Inorder traversal of the optimal binary search tree: ";
     inorder(root);
     return 0;
