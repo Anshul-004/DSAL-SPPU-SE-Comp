@@ -1,107 +1,127 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-struct Student
+struct employee
 {
-    int roll_number;
+    int id;
     string name;
-    string division;
-    string address;
+    string desg;
+    int salary;
 };
 
-void add_students()
+void add_employees()
 {
-    Student s;
-    cout << "Enter the roll number of the student-\n";
-    cin >> s.roll_number;
-    cout << "Enter the name of the student-\n";
+    employee s;
+    cout << "Enter the id of the employee-\n";
+    cin >> s.id;
+    cout << "Enter the name of the employee-\n";
     cin >> s.name;
-    cout << "Enter the division of the student-\n";
-    cin >> s.division;
-    cout << "Enter the address of the student-\n";
-    cin >> s.address;
+    cout << "Enter the desg of the employee-\n";
+    cin >> s.desg;
+    cout << "Enter the salary of the employee-\n";
+    cin >> s.salary;
 
-    if (1 <= s.roll_number and s.roll_number <= 10)
+    if (1 <= s.id and s.id <= 10)
     {
         ofstream write;
         write.open("1to10.txt", ios::app);
 
-        write << "\n" << s.roll_number;
-        write << "\n" << s.name;
-        write << "\n" << s.division;
-        write << "\n" << s.address;
+        write << "\n"
+              << s.id;
+        write << "\n"
+              << s.name;
+        write << "\n"
+              << s.desg;
+        write << "\n"
+              << s.salary;
 
         write.close();
     }
-    if (11 <= s.roll_number and s.roll_number <= 20)
+    if (11 <= s.id and s.id <= 20)
     {
         ofstream write;
         write.open("11to20.txt", ios::app);
 
-        write << "\n" << s.roll_number;
-        write << "\n" << s.name;
-        write << "\n" << s.division;
-        write << "\n" << s.address;
+        write << "\n"
+              << s.id;
+        write << "\n"
+              << s.name;
+        write << "\n"
+              << s.desg;
+        write << "\n"
+              << s.salary;
 
         write.close();
     }
-    if (21 <= s.roll_number and s.roll_number <= 30)
+    if (21 <= s.id and s.id <= 30)
     {
         ofstream write;
         write.open("21to30.txt", ios::app);
 
-        write << "\n" << s.roll_number;
-        write << "\n" << s.name;
-        write << "\n" << s.division;
-        write << "\n" << s.address;
+        write << "\n"
+              << s.id;
+        write << "\n"
+              << s.name;
+        write << "\n"
+              << s.desg;
+        write << "\n"
+              << s.salary;
 
         write.close();
     }
-    if (31 <= s.roll_number and s.roll_number <= 40)
+    if (31 <= s.id and s.id <= 40)
     {
         ofstream write;
         write.open("31to40.txt", ios::app);
 
-        write << "\n" << s.roll_number;
-        write << "\n" << s.name;
-        write << "\n" << s.division;
-        write << "\n" << s.address;
+        write << "\n"
+              << s.id;
+        write << "\n"
+              << s.name;
+        write << "\n"
+              << s.desg;
+        write << "\n"
+              << s.salary;
 
         write.close();
     }
-    if (41 <= s.roll_number and s.roll_number <= 50)
+    if (41 <= s.id and s.id <= 50)
     {
         ofstream write;
         write.open("41to50.txt", ios::app);
 
-        write << "\n" << s.roll_number;
-        write << "\n" << s.name;
-        write << "\n" << s.division;
-        write << "\n" << s.address;
+        write << "\n"
+              << s.id;
+        write << "\n"
+              << s.name;
+        write << "\n"
+              << s.desg;
+        write << "\n"
+              << s.salary;
 
         write.close();
     }
 }
 
-void print(Student s)
+void print(employee s)
 {
-    cout << "Roll number: " << s.roll_number << endl;
+    cout << "Roll number: " << s.id << endl;
     cout << "Name: " << s.name << endl;
-    cout << "Division: " << s.division << endl;
-    cout << "Address: " << s.address << endl;
+    cout << "desg: " << s.desg << endl;
+    cout << "salary: " << s.salary << endl;
 }
 
-void display_students()
+void display_employees()
 {
-    Student s1;
+    employee s1;
     ifstream read;
     read.open("1to10.txt");
     while (!read.eof())
     {
-        read >> s1.roll_number;
+        read >> s1.id;
         read >> s1.name;
-        read >> s1.division;
-        read >> s1.address;
+        read >> s1.desg;
+        read >> s1.salary;
 
         print(s1);
     }
@@ -109,14 +129,14 @@ void display_students()
 
     cout << endl;
 
-    Student s2;
+    employee s2;
     read.open("11to20.txt");
     while (!read.eof())
     {
-        read >> s2.roll_number;
+        read >> s2.id;
         read >> s2.name;
-        read >> s2.division;
-        read >> s2.address;
+        read >> s2.desg;
+        read >> s2.salary;
 
         print(s2);
     }
@@ -124,14 +144,14 @@ void display_students()
 
     cout << endl;
 
-    Student s3;
+    employee s3;
     read.open("21to30.txt");
     while (!read.eof())
     {
-        read >> s3.roll_number;
+        read >> s3.id;
         read >> s3.name;
-        read >> s3.division;
-        read >> s3.address;
+        read >> s3.desg;
+        read >> s3.salary;
 
         print(s3);
     }
@@ -139,14 +159,14 @@ void display_students()
 
     cout << endl;
 
-    Student s4;
+    employee s4;
     read.open("31to40.txt");
     while (!read.eof())
     {
-        read >> s4.roll_number;
+        read >> s4.id;
         read >> s4.name;
-        read >> s4.division;
-        read >> s4.address;
+        read >> s4.desg;
+        read >> s4.salary;
 
         print(s4);
     }
@@ -154,14 +174,14 @@ void display_students()
 
     cout << endl;
 
-    Student s5;
+    employee s5;
     read.open("41to50.txt");
     while (!read.eof())
     {
-        read >> s5.roll_number;
+        read >> s5.id;
         read >> s5.name;
-        read >> s5.division;
-        read >> s5.address;
+        read >> s5.desg;
+        read >> s5.salary;
 
         print(s5);
     }
@@ -170,103 +190,103 @@ void display_students()
     cout << endl;
 }
 
-int search_students(int roll_number)
+int search_employees(int id)
 {
-    if (1 <= roll_number and roll_number <= 10)
+    if (1 <= id and id <= 10)
     {
-        Student s;
+        employee s;
         ifstream read;
         read.open("1to10.txt");
         while (!read.eof())
         {
-            read >> s.roll_number;
+            read >> s.id;
             read >> s.name;
-            read >> s.division;
-            read >> s.address;
-            if (s.roll_number == roll_number)
+            read >> s.desg;
+            read >> s.salary;
+            if (s.id == id)
             {
-                cout << "Student's record found!" << endl;
-                return roll_number;
+                cout << "employee's record found!" << endl;
+                return id;
             }
         }
 
         read.close();
     }
-    if (11 <= roll_number and roll_number <= 20)
+    if (11 <= id and id <= 20)
     {
-        Student s;
+        employee s;
         ifstream read;
         read.open("11to20.txt");
         while (!read.eof())
         {
-            read >> s.roll_number;
+            read >> s.id;
             read >> s.name;
-            read >> s.division;
-            read >> s.address;
-            if (s.roll_number == roll_number)
+            read >> s.desg;
+            read >> s.salary;
+            if (s.id == id)
             {
-                cout << "Student's record found!" << endl;
-                return roll_number;
+                cout << "employee's record found!" << endl;
+                return id;
             }
         }
 
         read.close();
     }
-    if (21 <= roll_number and roll_number <= 30)
+    if (21 <= id and id <= 30)
     {
-        Student s;
+        employee s;
         ifstream read;
         read.open("21to30.txt");
         while (!read.eof())
         {
-            read >> s.roll_number;
+            read >> s.id;
             read >> s.name;
-            read >> s.division;
-            read >> s.address;
-            if (s.roll_number == roll_number)
+            read >> s.desg;
+            read >> s.salary;
+            if (s.id == id)
             {
-                cout << "Student's record found!" << endl;
-                return roll_number;
+                cout << "employee's record found!" << endl;
+                return id;
             }
         }
 
         read.close();
     }
-    if (31 <= roll_number and roll_number <= 40)
+    if (31 <= id and id <= 40)
     {
-        Student s;
+        employee s;
         ifstream read;
         read.open("31to40.txt");
         while (!read.eof())
         {
-            read >> s.roll_number;
+            read >> s.id;
             read >> s.name;
-            read >> s.division;
-            read >> s.address;
-            if (s.roll_number == roll_number)
+            read >> s.desg;
+            read >> s.salary;
+            if (s.id == id)
             {
-                cout << "Student's record found!" << endl;
-                return roll_number;
+                cout << "employee's record found!" << endl;
+                return id;
             }
         }
 
         read.close();
     }
-    if (41 <= roll_number and roll_number <= 50)
+    if (41 <= id and id <= 50)
     {
-        Student s;
+        employee s;
         ifstream read;
         read.open("41to50.txt");
         while (!read.eof())
         {
-            read >> s.roll_number;
+            read >> s.id;
             read >> s.name;
-            read >> s.division;
-            read >> s.address;
-            if (s.roll_number == roll_number)
+            read >> s.desg;
+            read >> s.salary;
+            if (s.id == id)
             {
-                cout << "Student's record found!" << endl;
-                return roll_number;
+                cout << "employee's record found!" << endl;
+                return id;
             }
         }
 
@@ -276,35 +296,39 @@ int search_students(int roll_number)
     return -1;
 }
 
-void delete_students(int roll_number)
+void delete_employees(int id)
 {
-    roll_number = search_students(roll_number);
+    id = search_employees(id);
 
-    if (roll_number == -1)
+    if (id == -1)
     {
-        cout << "Student record to be deleted is not present in the file!" << endl;
+        cout << "employee record to be deleted is not present in the file!" << endl;
         return;
     }
-    
-    if (1 <= roll_number and roll_number <= 10)
+
+    if (1 <= id and id <= 10)
     {
-        Student s;
+        employee s;
         ifstream read;
         ofstream write;
         read.open("1to10.txt");
         write.open("temp.txt");
         while (!read.eof())
         {
-            read >> s.roll_number;
+            read >> s.id;
             read >> s.name;
-            read >> s.division;
-            read >> s.address;
-            if (s.roll_number != roll_number)
+            read >> s.desg;
+            read >> s.salary;
+            if (s.id != id)
             {
-                write << "\n" << s.roll_number;
-                write << "\n" << s.name;
-                write << "\n" << s.division;
-                write << "\n" << s.address;
+                write << "\n"
+                      << s.id;
+                write << "\n"
+                      << s.name;
+                write << "\n"
+                      << s.desg;
+                write << "\n"
+                      << s.salary;
             }
         }
         read.close();
@@ -312,25 +336,29 @@ void delete_students(int roll_number)
         remove("1to10.txt");
         rename("temp.txt", "1to10.txt");
     }
-    if (11 <= roll_number and roll_number <= 20)
+    if (11 <= id and id <= 20)
     {
-        Student s;
+        employee s;
         ifstream read;
         ofstream write;
         read.open("11to20.txt");
         write.open("temp.txt");
         while (!read.eof())
         {
-            read >> s.roll_number;
+            read >> s.id;
             read >> s.name;
-            read >> s.division;
-            read >> s.address;
-            if (s.roll_number != roll_number)
+            read >> s.desg;
+            read >> s.salary;
+            if (s.id != id)
             {
-                write << "\n" << s.roll_number;
-                write << "\n" << s.name;
-                write << "\n" << s.division;
-                write << "\n" << s.address;
+                write << "\n"
+                      << s.id;
+                write << "\n"
+                      << s.name;
+                write << "\n"
+                      << s.desg;
+                write << "\n"
+                      << s.salary;
             }
         }
         read.close();
@@ -338,25 +366,29 @@ void delete_students(int roll_number)
         remove("11to20.txt");
         rename("temp.txt", "11to20.txt");
     }
-    if (21 <= roll_number and roll_number <= 30)
+    if (21 <= id and id <= 30)
     {
-        Student s;
+        employee s;
         ifstream read;
         ofstream write;
         read.open("21to30.txt");
         write.open("temp.txt");
         while (!read.eof())
         {
-            read >> s.roll_number;
+            read >> s.id;
             read >> s.name;
-            read >> s.division;
-            read >> s.address;
-            if (s.roll_number != roll_number)
+            read >> s.desg;
+            read >> s.salary;
+            if (s.id != id)
             {
-                write << "\n" << s.roll_number;
-                write << "\n" << s.name;
-                write << "\n" << s.division;
-                write << "\n" << s.address;
+                write << "\n"
+                      << s.id;
+                write << "\n"
+                      << s.name;
+                write << "\n"
+                      << s.desg;
+                write << "\n"
+                      << s.salary;
             }
         }
         read.close();
@@ -364,25 +396,29 @@ void delete_students(int roll_number)
         remove("21to30.txt");
         rename("temp.txt", "21to30.txt");
     }
-    if (31 <= roll_number and roll_number <= 40)
+    if (31 <= id and id <= 40)
     {
-        Student s;
+        employee s;
         ifstream read;
         ofstream write;
         read.open("31to40.txt");
         write.open("temp.txt");
         while (!read.eof())
         {
-            read >> s.roll_number;
+            read >> s.id;
             read >> s.name;
-            read >> s.division;
-            read >> s.address;
-            if (s.roll_number != roll_number)
+            read >> s.desg;
+            read >> s.salary;
+            if (s.id != id)
             {
-                write << "\n" << s.roll_number;
-                write << "\n" << s.name;
-                write << "\n" << s.division;
-                write << "\n" << s.address;
+                write << "\n"
+                      << s.id;
+                write << "\n"
+                      << s.name;
+                write << "\n"
+                      << s.desg;
+                write << "\n"
+                      << s.salary;
             }
         }
         read.close();
@@ -390,25 +426,29 @@ void delete_students(int roll_number)
         remove("31to40.txt");
         rename("temp.txt", "31to40.txt");
     }
-    if (41 <= roll_number and roll_number <= 50)
+    if (41 <= id and id <= 50)
     {
-        Student s;
+        employee s;
         ifstream read;
         ofstream write;
         read.open("1to10.txt");
         write.open("temp.txt");
         while (!read.eof())
         {
-            read >> s.roll_number;
+            read >> s.id;
             read >> s.name;
-            read >> s.division;
-            read >> s.address;
-            if (s.roll_number != roll_number)
+            read >> s.desg;
+            read >> s.salary;
+            if (s.id != id)
             {
-                write << "\n" << s.roll_number;
-                write << "\n" << s.name;
-                write << "\n" << s.division;
-                write << "\n" << s.address;
+                write << "\n"
+                      << s.id;
+                write << "\n"
+                      << s.name;
+                write << "\n"
+                      << s.desg;
+                write << "\n"
+                      << s.salary;
             }
         }
         read.close();
@@ -420,23 +460,47 @@ void delete_students(int roll_number)
 
 int main()
 {
-    add_students();
-    add_students();
-    add_students();
-    add_students();
-    add_students();
-    add_students();
-
-    display_students();
-
-    int found = search_students(34);
-    if (found == -1) 
+    cout << "\nPrepared By - Anshul Singh" << endl;
+    cout << "Practical No. 12 (F -24)" << endl;
+    int ch;
+    while (1)
     {
-        cout << "Record not found!" << endl;
-        cout << endl;
-    }
+        cout << "\n----MENU----" << endl;
+        cout << "\n1. Add Employee, 2.Display Employee, 3.Search Employee, 4.Delete Employee, 5.Exit" << endl;
+        cin >> ch;
+        cout<<endl;
 
-    delete_students(7);
-    display_students();
+        if (ch == 1)
+        {
+            add_employees();
+        }
+        else if (ch == 2)
+        {
+            display_employees();
+        }
+        else if (ch == 3)
+        {
+            int temp;
+            cout << "Enter the ID of employee to search" << endl;
+            cin >> temp;
+            int x = search_employees(temp);
+            if (x == -1)
+            {
+                cout << "Record not found!" << endl;
+                cout << endl;
+            }
+        }
+        else if (ch == 4)
+        {
+            int temp;
+            cout << "Enter the ID of employee to delete" << endl;
+            cin >> temp;
+            delete_employees(temp);
+        }
+        else if (ch == 5)
+        {
+            exit(0);
+        }
+    }
     return 0;
 }

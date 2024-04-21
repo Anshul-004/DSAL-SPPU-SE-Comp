@@ -143,6 +143,8 @@ void delete_students(int roll_number)
 int main()
 {
     int choice;
+    cout<<"Prepared By - Anshul Singh"<<endl;
+    cout<<"Practical No. 11 (F -23)"<<endl;
     do
     {
         cout << "-----STUDENT RECORDS-----" << endl;
