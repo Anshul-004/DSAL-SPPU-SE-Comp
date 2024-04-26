@@ -1,113 +1,63 @@
-'''Consider a telephone book database of N clients. Make use of a hash table implementation
-to quickly look up client's telephone number. Make use of two collision handling
-techniques and compare them using number of comparisons required to find a set of
-telephone numbers (Python) '''
-
-size = int(input("Enter size of Hash Table : "))
-array1 = []
-array2 = []
-
-for i in range(size):
-    array1.append(None)
-    array2.append(None)
+def tele_database():
+    phone_data = []
+    n = int(input("Enter Number of Clients :- "))
+    print("Enter Phone Numbers --\n")
+    for _ in range(n):
+        x = int(input("--> "))
+        phone_data.append(x)
+    return phone_data
 
 
-# Insertion Using Linera Probing
-
-def insert_LineraProbing(data):
-    i = 0
-    count = 1
-    value = (data+i) % size
-    while (array1[value] != None):
-        value = (data + i) % size
-        i = i+1
-        count = count + 1
-    array1[value] = data
-    display_LinearProbing()
-    print("Number of comparisons : ", count)
-
-# Insertion Using Quadriatic probing
+def hash_function_1(key_ele, m_size):
+    h1 = key_ele % m_size
+    return h1
 
 
-def insert_quadriaticProbing(data):
-    i = 0
-    count = 1
-    value = (data + (i*i)) % size
-    while (array2[value] != None):
-        if (count > 2*size):
-            print("opps, Index Not Found....")
-            break
-        value = (data + (i*i)) % size
-        i = i+1
-        count = count + 1
-    array2[value] = data
-    display_QuadriaticProbing()
-    print("Number of Comparisons : ", count)
+def hash_function_2(key_ele):
+    h2 = 7 - (key_ele % 7)
+    return h2
 
 
-def display_LinearProbing():
-    print("Linear Probing: ")
-    print(array1)
+def hashtable(ht):
+    print(f"\nHash Value \tKey")
+    for ele in range(len(ht)):
+        if ht[ele] != -1:
+            print(f"\n\t{ele} \t---> \t{ht[ele]}")
+        else:
+            print(f"\n\t{ele}")
+
+# Main function
 
 
-def display_QuadriaticProbing():
-    print("Quadriatic Probing : ")
-    print(array2)
+print("--- Prepared By - Anshul Singh ---\n")
+print("*** DSAL Practical No. 1 (A-1) ***\n")
 
+while (1):
+    phone_database = tele_database()
+    m = int(input("Enter Hash Table Size :- "))
+    hash_table = [-1] * m
+    opt = int(input("If collision occurs which collision resolution technique do you want to use?\n\t1. Linear Probing\n\t2. Double Hashing\n\t3. Exit :- "))
+    for k in phone_database:
+        h_1 = hash_function_1(k, m)
+        h_2 = hash_function_2(k)
 
-def search1(data):
-    i = 0
-    count = 1
-    value = (data+(i)) % size
-    while (array1[value] != None):
-        if (array1[value] == data):
-            print("Telephone Number Found ")
-            print("Number of Comparisons in Linear Probing are : ", count)
-            break
-        elif (count > size*2):
-            print("NO ELEMENT FOUND")
-            break
-        value = (data+(i)) % size
-        i = i+1
-        count = count + 1
-    if (array1[value] == None):
-        print("Opps, Element Not Present")
-        print("Number of Comparisons : ", count)
+        if hash_table[h_1] == -1:
+            hash_table[h_1] = k
+        else:
+            if opt == 1:
+                while hash_table[h_1] != -1:
+                    h_1 += 1
+                hash_table[h_1] = k
+                hashtable(hash_table)
 
+            elif opt == 2:
+                i = 0
+                while hash_table[h_1] != -1:
+                    i += 1
+                    h_1 = (h_1 + (i * h_2)) % m
+                hash_table[h_1] = k
+                hashtable(hash_table)
 
-def search2(data):
-    i = 0
-    count = 1
-    value = (data+(i*i)) % size
-    while (array2[value] != None):
-        if (array2[value] == data):
-            print("Telephone number found ")
-            print("Number of comparisons in Quadriatic Probing are : ", count)
-            break
-        if (count > 2*size):
-            print("Opps, Cannot Fetch Index")
-            break
-        value = (data+(i*i)) % size
-        i = i+1
-        count = count+1
-    if (array2[value] == None):
-        print("No such Element Found")
-        print("Number of comparisons : ", count)
-
-
-while (True):
-    print("1. Insert    2. Search")
-    choice = int(input("Enter Choice : "))
-    if (choice == 1):
-        data1 = int(input("Enter Telephone Number : "))
-        # print("\n")
-        # insert_LineraProbing(data1)
-        # insert_quadriaticProbing(data1)
-        # print("\n")
-
-    if (choice == 2):
-        data1 = int(input("Enter Telephone Number : "))
-        print("\n")
-        search1(data1)
-        search2(data1)
-        print("\n")
+            elif opt == 3:
+                print("\n*** TERMINATED SUCCESSFULLY ***")
+                exit(0)
