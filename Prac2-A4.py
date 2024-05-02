@@ -1,7 +1,7 @@
 def main(): 
     set1 = set() 
     set2 = set() 
-    print("PREPARED BY – Anshul Singh\n") 
+    print("PREPARED BY - Anshul Singh\n") 
     print("*** DSAL PRACTICAL NO - 02 (A-04) ***") 
     while(True): 
         print("\n\n==== SET OPERATIONS ====\n") 

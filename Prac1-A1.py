@@ -22,7 +22,7 @@ def hashtable(ht):
     print(f"\nHash Value \tKey")
     for ele in range(len(ht)):
         if ht[ele] != -1:
-            print(f"\n\t{ele} \t---> \t{ht[ele]}")
+            print(f"\n\t{ele} \t --> \t{ht[ele]}")
         else:
             print(f"\n\t{ele}")
 
@@ -35,7 +35,7 @@ print("*** DSAL Practical No. 1 (A-1) ***\n")
 while (1):
     phone_database = tele_database()
     m = int(input("Enter Hash Table Size :- "))
-    hash_table = [-1] * m
+    hash_table = [-1] * m #creates a list with size m, all elements as -1
     opt = int(input("If collision occurs which collision resolution technique do you want to use?\n\t1. Linear Probing\n\t2. Double Hashing\n\t3. Exit :- "))
     for k in phone_database:
         h_1 = hash_function_1(k, m)
