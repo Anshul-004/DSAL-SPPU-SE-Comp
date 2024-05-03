@@ -73,7 +73,7 @@ void postOrderTraversalAndDelete(TreeNode *root)
                 lastVisited = topNode;
                 stk.pop();
                 delete topNode;
-                cout<<"Tree Deleted";
+                
             }
         }
     }
